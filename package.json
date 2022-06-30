@@ -1,0 +1,28 @@
+{
+   "name": "banco_solar",
+   "version": "1.0.0",
+   "description": "Desafio LATAM Modulo 07 Prueba - Banco Solar",
+   "main": "app.js",
+   "scripts": {
+      "start": "node app.js",
+      "dev": "nodemon app.js"
+   },
+   "keywords": [
+      "HTML",
+      "CSS",
+      "Javascript",
+      "Node",
+      "Express",
+      "PostgreSQL",
+      "pg",
+      "dotenv",
+      "pug",
+      "DB",
+      "DML",
+      "TCL",
+      "API RESTful",
+      "HTTP"
+   ],
+   "author": "Aframuz",
+   "license": "ISC"
+}
