@@ -15,7 +15,7 @@ const pool = new Pool()
 =                   EVENTS                    =
 =============================================*/
 // On Error
-pool.on("error", (err, client) => {
+pool.on("error", (err) => {
    console.error(`Unexpected error on idle client`, err)
    process.exit(-1)
 })
@@ -38,9 +38,28 @@ const query = async (queryConf) => {
    }
 }
 
+// General Transaction Structure
+const transaction = async (queries) => {
+   const client = await pool.connect()
+   try {
+      await client.query("BEGIN")
+      for (const query of queries) {
+         await client.query(query)
+      }
+      await client.query("COMMIT")
+      return res
+   } catch (err) {
+      await client.query("ROLLBACK")
+      throw err
+   } finally {
+      client.release()
+   }
+}
+
 /*=============================================
 =                   EXPORTS                   =
 =============================================*/
 module.exports = {
    query,
+   transaction,
 }
