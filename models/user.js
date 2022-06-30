@@ -8,7 +8,7 @@ const client = require("../config/db.config")
 =                   QUERIES                   =
 =============================================*/
 // Get
-const get = async () => {
+const getUsers = async () => {
    // Query Conf
    const queryConf = {
       text: "SELECT * FROM usuarios",
@@ -24,7 +24,7 @@ const get = async () => {
 }
 
 // Insert
-const insert = async (obj) => {
+const insertUser = async (obj) => {
    // Query Conf
    const queryConf = {
       text: "INSERT INTO usuarios (nombre, balance) VALUES ($1, $2) RETURNING *",
@@ -42,7 +42,7 @@ const insert = async (obj) => {
 }
 
 // Update
-const update = async (obj) => {
+const updateUser = async (obj) => {
    // Query conf
    const queryConf = {
       text: "UPDATE usuarios SET nombre = $1, balance = $2 WHERE id = $3 RETURNING *",
@@ -60,7 +60,7 @@ const update = async (obj) => {
 }
 
 // Delete
-const deleteU = async (id) => {
+const deleteUser = async (id) => {
    // Query conf
    const queryConf = {
       text: "DELETE FROM usuarios WHERE id = $1",
@@ -81,8 +81,8 @@ const deleteU = async (id) => {
 =                   EXPORTS                   =
 =============================================*/
 module.exports = {
-   get,
-   insert,
-   update,
-   deleteU,
+   getUser,
+   insertUser,
+   updateUser,
+   deleteUser,
 }

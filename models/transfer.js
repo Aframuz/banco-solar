@@ -8,7 +8,7 @@ const client = require("../config/db.config")
 =                   QUERIES                   =
 =============================================*/
 // Get, RETURN (date, sender Name, receiver Name, amount)
-const get = async () => {
+const getTransfers = async () => {
    // Query Conf
    const queryConf = {
       text: "SELECT tr.fecha, u1.nombre as emisor, u2.nombre as receptor, tr.monto FROM transferencias tr LEFT JOIN usuarios u1 ON u1.id = tr.emisor LEFT JOIN usuarios u2 ON u2.id = tr.receptor;",
@@ -24,7 +24,7 @@ const get = async () => {
 }
 
 // Insert transfer
-const insert = async (obj) => {
+const insertTransfer = async (obj) => {
    // Queries Conf
    const insertTransfer = {
       text: "INSERT INTO transferencias (emisor, receptor, monto, fecha) VALUES ($1, $2, $3, NOW()) RETURNING *",
@@ -49,4 +49,7 @@ const insert = async (obj) => {
 /*=============================================
 =                   EXPORTS                   =
 =============================================*/
-module.exports = {}
+module.exports = {
+   getTransfers,
+   insertTransfer,
+}
