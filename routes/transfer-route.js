@@ -15,7 +15,7 @@ const router = express.Router()
 /*=============================================
 =                   ROUTES                    =
 =============================================*/
-router.route("/")
+router.route("/").get(transferController.get).post(transferController.add)
 /*=============================================
 =                   EXPORTS                   =
 =============================================*/

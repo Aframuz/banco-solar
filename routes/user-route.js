@@ -15,7 +15,8 @@ const router = express.Router()
 /*=============================================
 =                   ROUTES                    =
 =============================================*/
-router.route("/")
+router.route("/:id").put(userController.update).delete(userController.deleteU)
+router.route("/").get(userController.get).post(userController.add)
 /*=============================================
 =                   EXPORTS                   =
 =============================================*/
