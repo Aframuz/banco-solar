@@ -1,8 +1,4 @@
-mixin row(id,text,type) 
-   .row
-      .col-2= text 
-      .col-10
-         input.form-control(id=id type=type)
+include ../mixins/modal-row.pug
 
 #edit-modal.modal.fade(tabindex="=1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true")
    .modal-dialog.text-dark(role="document")
@@ -11,7 +7,7 @@ mixin row(id,text,type)
             +row(id="edit-name",text="Nombre",type="text")
             +row(id="edit-balance",text="Balance",type="number")
 
-            button#editBtn.btn.btn-danger Editar
+            button#edit-btn.btn.btn-danger Editar
 
 //- Change ID?
 

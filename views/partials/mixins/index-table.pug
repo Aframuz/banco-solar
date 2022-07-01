@@ -1,0 +1,7 @@
+mixin table(header, tHeads, tbodyClass)
+   h5= header 
+   table.table.bg-light 
+      thead.bg-danger.text-white 
+         for thText in tHeads 
+            th= thText
+         tbody(class=tbodyClass)

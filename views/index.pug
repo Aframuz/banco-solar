@@ -1,4 +1,5 @@
-extends ../layout.pug 
+extends ./layouts/main-layout.pug 
+include ./partials/mixins/index-table.pug
 
 block main
    h1.text-center 🏫
@@ -38,12 +39,3 @@ block main
             +table("Tabla de Usuarios", ["Nombre", "Balance", ""], "usuarios")
          .col-12.col-sm-7.text-center
             +table("Tabla de Transferencias", ["Emisor", "Receptor", "Monto"], "transferencias")
-
-//- Mixins
-mixin table(header, tHeads, tbodyClass)
-   h5= header 
-   table.table.bg-light 
-      thead.bg-danger.text-white 
-         for thText in tHeads 
-            th= thText
-         tbody(class=tbodyClass)
