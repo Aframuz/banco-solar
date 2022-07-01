@@ -81,7 +81,7 @@ const deleteUser = async (id) => {
 =                   EXPORTS                   =
 =============================================*/
 module.exports = {
-   getUser,
+   getUsers,
    insertUser,
    updateUser,
    deleteUser,
