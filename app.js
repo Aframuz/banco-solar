@@ -21,10 +21,13 @@ app.use(express.static(publicDir))
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
-app.set("view engins", "pug")
+app.set("view engine", "pug")
 /*=============================================
 =                   ROUTES                    =
 =============================================*/
+app.get("/", (req, res) => {
+   res.render("./index/index")
+})
 app.use("/users", userRoute)
 app.use("/transfers", transferRoute)
 
