@@ -1,0 +1,49 @@
+extends ../layout.pug 
+
+block main
+   h1.text-center 🏫
+   h2.text-center.pb-0.mb-0 Banco Solar C.A 
+   hr.w-25.pb-1.mx-auto
+   .row.m-auto.px-5 
+      .col-12.col-sm-5 
+         form
+            .form-group.text-center 
+               h5 Agregar Nuevo Usuario 
+               hr.bg-dark.w-50.mx-auto
+               .d-flex.align-items-center.justify-content-center
+                  label(for="name") Nombre
+                  input#name.form-control.d-inline.mx-3(required)
+                  label(for="balance") Balance
+                  input#balance.form-control.d-inline.mx-3(required)
+                  button.btn.btn-danger(type="submit") Agregar
+         br
+      .col-12.col-sm-7
+         form
+            .form-group.text-center
+               h5 Realizar una Transferencia 
+               hr.bg-dark.w-50.mx-auto
+               .d-flex.align-items-center.justify-content-center.flex-wrap 
+                  .mr-2
+                     label(for="sender") Emisor 
+                     select#sender.form-control.mx-2.w-auto.d-inline
+                  .mr-3 
+                     label(for="receiver") Receptor 
+                     select#receiver.form-control.mx-2.w-auto.d-inline
+                  .mr-3
+                     label(for="amount") Monto
+                     input#amount.form-control.mx-2.w-auto.d-inline
+                  button.btn.btn-danger(type="submit") Realizar
+      .col-12.row.mt-3.mx-0.px-0 
+         .col-12.col-sm-5.text-center
+            +table("Tabla de Usuarios", ["Nombre", "Balance", ""], "usuarios")
+         .col-12.col-sm-7.text-center
+            +table("Tabla de Transferencias", ["Emisor", "Receptor", "Monto"], "transferencias")
+
+//- Mixins
+mixin table(header, tHeads, tbodyClass)
+   h5= header 
+   table.table.bg-light 
+      thead.bg-danger.text-white 
+         for thText in tHeads 
+            th= thText
+         tbody(class=tbodyClass)
